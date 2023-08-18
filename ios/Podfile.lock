@@ -306,6 +306,8 @@ PODS:
     - React-Core
   - react-native-safe-area-context (4.7.1):
     - React-Core
+  - react-native-splash-screen (3.3.0):
+    - React-Core
   - React-perflogger (0.70.10)
   - React-RCTActionSheet (0.70.10):
     - React-Core/RCTActionSheetHeaders (= 0.70.10)
@@ -408,6 +410,8 @@ PODS:
   - RNScreens (3.24.0):
     - React-Core
     - React-RCTImage
+  - RNVectorIcons (10.0.0):
+    - React-Core
   - SocketRocket (0.6.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -462,6 +466,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -478,6 +483,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -545,6 +551,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-splash-screen:
+    :path: "../node_modules/react-native-splash-screen"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -577,6 +585,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -617,6 +627,7 @@ SPEC CHECKSUMS:
   React-logger: 7fbdc3576b2ed3834360c8ea3c1c2ec54ac3043a
   react-native-pager-view: 0ccb8bf60e2ebd38b1f3669fa3650ecce81db2df
   react-native-safe-area-context: 9697629f7b2cda43cf52169bb7e0767d330648c2
+  react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   React-perflogger: f86e85eb59151d09e9b44b8931f5c088e4f08bbc
   React-RCTActionSheet: cd3d76501a6069e164986b93f144be34b593955c
   React-RCTAnimation: 2d09db635202e5d6f66de596f5a6b38389fe76ec
@@ -633,6 +644,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
   RNReanimated: aa8bda648be0174b2b83246ab9cd2644b46ca3c1
   RNScreens: b21dc57dfa2b710c30ec600786a3fc223b1b92e7
+  RNVectorIcons: 8b5bb0fa61d54cd2020af4f24a51841ce365c7e9
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: 0518155cfbcc68c56223422f6a20a71b82e307d2
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a

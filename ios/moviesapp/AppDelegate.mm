@@ -3,6 +3,8 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import "RNSplashScreen.h"
+
 
 #import <React/RCTAppSetupUtils.h>
 
@@ -49,7 +51,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   if (@available(iOS 13.0, *)) {
     rootView.backgroundColor = [UIColor systemBackgroundColor];
   } else {
-    rootView.backgroundColor = [UIColor whiteColor];
+    rootView.backgroundColor = [UIColor colorWithRed: 0.09 green: 0.09 blue: 0.11 alpha: 1.00];
   }
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -57,6 +59,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [RNSplashScreen show];
   return YES;
 }
 
