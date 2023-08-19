@@ -6,9 +6,11 @@ import { Routes } from '../../utils/enums'
 function LoginContainer() {
   const { navigate } = useNavigation()
 
-  const onSubmit = ({ user, password }: FormValues) => {
+  const onSubmit = async ({ user, password }: FormValues) => {
     // hardcode login check
-    if (user === 'user' && password === '123') navigate(Routes.MOVIES as never)
+    if (user === 'user' && password === '123') {
+      navigate(Routes.MOVIES as never)
+    }
   }
 
   return <Login onPressEnter={onSubmit} />

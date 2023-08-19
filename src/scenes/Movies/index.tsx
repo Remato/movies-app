@@ -1,28 +1,49 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import Movies from './Movies'
-import { fetchMovies } from '../../api'
+import { fetchMovies, fetchFavorites } from '../../api'
+import { useFocusEffect } from '@react-navigation/native'
 
 function MoviesContainer() {
-  const [page, setPage] = useState(1)
+  const [moviesPage, setMoviesPage] = useState(1)
+  const [favoritesPage, setFavoritesPage] = useState(1)
   const [movies, setMovies] = useState([] as Movie[])
+  const [favorites, setFavorites] = useState([] as Movie[])
 
   const initialFetch = async () => {
-    const newMovies = await fetchMovies(page)
+    const newMovies = await fetchMovies(moviesPage)
+    const favorites = await fetchFavorites(favoritesPage)
     setMovies(newMovies)
-    // adicionar paginação
+    setFavorites(favorites)
+    setMoviesPage((prevPage) => prevPage + 1)
+    setFavoritesPage((prevPage) => prevPage + 1)
   }
 
   const fetchMoreMovies = async () => {
-    const newMovies = await fetchMovies(page)
+    const newMovies = await fetchMovies(moviesPage)
     setMovies([...movies, ...newMovies])
-    setPage((prevPage) => prevPage + 1)
+    setMoviesPage((prevPage) => prevPage + 1)
   }
 
-  useEffect(() => {
-    initialFetch()
-  })
+  const fetchMoreFavorites = async () => {
+    const newFavorites = await fetchFavorites(favoritesPage)
+    setFavorites([...favorites, ...newFavorites])
+    setFavoritesPage((prevPage) => prevPage + 1)
+  }
 
-  return <Movies movies={movies} onEndReach={fetchMoreMovies} />
+  useFocusEffect(
+    useCallback(() => {
+      initialFetch()
+    }, []),
+  )
+
+  return (
+    <Movies
+      movies={movies}
+      favorites={favorites}
+      moreMovies={fetchMoreMovies}
+      moreFavorites={fetchMoreFavorites}
+    />
+  )
 }
 
 export default MoviesContainer

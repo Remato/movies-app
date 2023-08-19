@@ -6,13 +6,21 @@ import {
   RightButtonText,
   RightButtonWrapper,
 } from './styles'
+import { useMovie } from '../../stores'
 
 function Menu() {
   const [filtered, setFiltered] = useState(false)
+  const { setShowFavorites } = useMovie()
 
-  const addFilter = () => setFiltered(true)
+  const addFilter = () => {
+    setFiltered(true)
+    setShowFavorites(true)
+  }
 
-  const removeFilter = () => setFiltered(false)
+  const removeFilter = () => {
+    setFiltered(false)
+    setShowFavorites(false)
+  }
 
   return (
     <Wrapper>

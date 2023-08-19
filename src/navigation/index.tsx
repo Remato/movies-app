@@ -1,3 +1,4 @@
+import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { PublicStack } from './stacks'
@@ -9,12 +10,12 @@ const App = () => {
   return (
     <NavigationContainer>
       <MainStack.Navigator
-        initialRouteName={'PUBLIC'}
+        initialRouteName={STACKS.PUBLIC}
         screenOptions={{
           headerShown: false,
         }}
       >
-        <MainStack.Screen name={'PUBLIC'} component={PublicStack} />
+        <MainStack.Screen name={STACKS.PUBLIC} component={PublicStack} />
         {/* <MainStack.Screen name={'PRIVATE'} component={PrivateStack} /> */}
       </MainStack.Navigator>
     </NavigationContainer>

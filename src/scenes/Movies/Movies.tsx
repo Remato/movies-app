@@ -8,20 +8,53 @@ import {
   MoviesList,
   MovieView,
 } from './styles'
+import { useMovie } from '../../stores'
 
 type Props = {
   movies: Movie[]
-  onEndReach(): void
+  favorites: Movie[]
+  moreMovies(): void
+  moreFavorites(): void
 }
 
-function Movies({ movies, onEndReach }: Props) {
+function Movies({ movies, favorites, moreMovies, moreFavorites }: Props) {
+  const { showFavorites } = useMovie()
+
   const renderCard = (item: Movie) => {
-    const { poster_path } = item as Movie
+    // eslint-disable-next-line camelcase
+    const { poster_path, id } = item as Movie
 
     return (
-      <MovieView>
-        <MovieCard path={poster_path} />
+      <MovieView key={id}>
+        {/* eslint-disable-next-line camelcase */}
+        <MovieCard path={poster_path} movie={item} />
       </MovieView>
+    )
+  }
+
+  const selectMovies = () => {
+    return showFavorites ? (
+      <MoviesList
+        showsHorizontalScrollIndicator={false}
+        data={favorites}
+        numColumns={2}
+        onEndReached={moreFavorites}
+        onEndReachedThreshold={0.1}
+        renderItem={({ item }) => {
+          return renderCard(item as Movie)
+        }}
+      />
+    ) : (
+      <MoviesList
+        showsHorizontalScrollIndicator={false}
+        data={movies}
+        numColumns={2}
+        onEndReached={moreMovies}
+        onEndReachedThreshold={0.4}
+        renderItem={({ item }) => {
+          return renderCard(item as Movie)
+        }}
+      />
     )
   }
 
@@ -33,16 +66,7 @@ function Movies({ movies, onEndReach }: Props) {
           <MenuIcon name="more-vertical" />
         </Header>
         <Menu />
-        <MoviesList
-          showsHorizontalScrollIndicator={false}
-          data={movies}
-          numColumns={2}
-          // onEndReached={onEndReach}
-          // onEndReachedThreshold={0.2}
-          renderItem={({ item }) => {
-            return renderCard(item as Movie)
-          }}
-        />
+        {selectMovies()}
       </Wrapper>
     </SafeAreaView>
   )

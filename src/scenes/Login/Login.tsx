@@ -31,6 +31,7 @@ function Login({ onPressEnter }: Props) {
 
   return (
     <Wrapper>
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image source={logo} />
       <InputWrapper>
         <TextInput

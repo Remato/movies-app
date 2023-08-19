@@ -1,7 +1,8 @@
-// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Login, Movies, FavoriteMovies } from '../scenes'
+import { Login, Movies, FavoriteMovies, Details } from '../scenes'
 import { Routes } from '../utils/enums'
+// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
 const Public = createNativeStackNavigator()
 // const Private = createMaterialTopTabNavigator()
@@ -22,6 +23,7 @@ export const PublicStack = (): JSX.Element => (
   >
     <Public.Screen name={Routes.LOGIN} component={Login} />
     <Public.Screen name={Routes.MOVIES} component={Movies} />
+    <Public.Screen name={Routes.DETAILS} component={Details} />
     <Public.Screen name={Routes.FAVORITE_MOVIES} component={FavoriteMovies} />
   </Public.Navigator>
 )

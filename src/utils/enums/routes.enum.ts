@@ -3,5 +3,6 @@ export enum Routes {
   LOGIN = 'Login',
   // PRIVATE ROUTES
   MOVIES = 'Movies',
+  DETAILS = 'Details',
   FAVORITE_MOVIES = 'FavoriteMovies',
 }
