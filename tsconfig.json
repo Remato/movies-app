@@ -22,7 +22,7 @@
         }
       }
     ],
-    "types": ["node"],
+    "types": ["node", "jest"],
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "baseUrl": ".",
     "paths": {

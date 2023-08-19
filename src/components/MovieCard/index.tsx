@@ -14,7 +14,7 @@ function MovieCard({ movie, path }: Props) {
 
   const onPressMovie = () => {
     setMovie(movie)
-    navigate(Routes.DETAILS)
+    navigate(Routes.DETAILS as never)
   }
 
   return (
