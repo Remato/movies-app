@@ -3,8 +3,7 @@
 ## Este é um app de filmes!
 
 ## App overview 📱
-
-![Overview](./.github/demo.gif)
+### Você pode ver uma prévia do app [AQUI](https://drive.google.com/file/d/1Fu87VxITGFPnTyxeiIOQ7Aitc0RScDwE/view?usp=sharing)
 ## Test User
 > usuário: user
 >
