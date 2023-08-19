@@ -14,11 +14,8 @@ const theme = {
   },
 }
 
-const testFunction = () => {
-  console.log('função de teste')
-}
-
 describe('Button', () => {
+  const testFunction = jest.fn()
   it('Deve ser capaz de renderizar o label', () => {
     const { getByText } = render(
       <ThemeProvider theme={theme}>

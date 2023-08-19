@@ -20,7 +20,6 @@ export const fetchMovies = async (page: number): Promise<Movie[]> => {
         },
       },
     )
-    console.log(data.results[0])
     return data.results
   } catch (error) {
     throw new Error(error as string)

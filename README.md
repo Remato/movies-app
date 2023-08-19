@@ -4,6 +4,7 @@
 
 ## App overview 📱
 
+![Overview](./.github/demo.gif)
 ## Test User
 > usuário: user
 >
@@ -17,6 +18,7 @@
 - [[React Hook Forms]](https://www.react-hook-form.com/) - Forms with React Native;
 - [[Axios]](https://github.com/axios/axios) -  Promise-based HTTP Client;
 - [[TMDB API]](https://www.themoviedb.org/settings/api) - Movies API Database
+- [[React Native Test Library]](https://callstack.github.io/react-native-testing-library/) - Tests Lib
 
 ## .env ⚙️
 renomeie o arquivo  ".env.example" para ".env"
