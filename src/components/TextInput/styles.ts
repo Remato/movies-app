@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
 type Props = {
@@ -37,9 +38,12 @@ export const Label = styled.Text<Props>`
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.5px;
+  margin-top: ${Platform.OS === 'ios' ? 0 : 16}px;
 `
 
-export const Text = styled.TextInput`
+export const Text = styled.TextInput.attrs({
+  placeholderTextColor: '#fff',
+})`
   color: ${({ theme }) => theme.colors.secondary};
   font-family: 'Roboto';
   font-size: 16px;

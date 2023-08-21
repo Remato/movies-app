@@ -18,6 +18,8 @@ type Props = {
   labelName: string
   leftIconName: string
   rightIconName: string
+  onFocus?(): void
+  onBlur?(): void
 } & TextInputProps
 
 function TextInput({
@@ -25,13 +27,21 @@ function TextInput({
   labelName,
   leftIconName,
   rightIconName,
+  onFocus = () => {},
+  onBlur = () => {},
   ...rest
 }: Props) {
   const [isFocused, setIsFocused] = useState(false)
 
-  const handleFocus = () => setIsFocused(true)
+  const handleFocus = () => {
+    onFocus && onFocus()
+    setIsFocused(true)
+  }
 
-  const handleBlur = () => setIsFocused(false)
+  const handleBlur = () => {
+    onBlur && onBlur()
+    setIsFocused(false)
+  }
 
   return (
     <>

@@ -9,14 +9,24 @@ import {
 import { TextInput, Button } from '../../components'
 import { yupResolver } from '@hookform/resolvers/yup'
 import logo from '../../assets/logo.png'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { FormValues, validationSchema } from './form'
+import { Keyboard } from 'react-native'
 
 type Props = {
   onPressEnter(values: FormValues): void
 }
 
 function Login({ onPressEnter }: Props) {
+  const [showImage, setShowImage] = useState(true)
+
+  const handleShowImage = () => {
+    Keyboard.dismiss()
+    setShowImage(true)
+  }
+
+  const handleHideImage = () => setShowImage(false)
+
   const {
     register,
     setValue,
@@ -30,18 +40,19 @@ function Login({ onPressEnter }: Props) {
   }, [register])
 
   return (
-    <Wrapper>
+    <Wrapper onPress={handleShowImage}>
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
-      <Image source={logo} />
+      {showImage && <Image source={logo} />}
       <InputWrapper>
         <TextInput
           labelName="Usuário"
           leftIconName="user"
-          placeholder="Usuário"
+          placeholder="user"
           rightIconName="x-circle"
           autoCapitalize="none"
           error={errors.user}
           onChangeText={(user) => setValue('user', user)}
+          onFocus={handleHideImage}
         />
       </InputWrapper>
       <InputWrapper>
@@ -49,10 +60,11 @@ function Login({ onPressEnter }: Props) {
           secureTextEntry
           labelName="Senha"
           leftIconName="lock"
-          placeholder="Senha"
+          placeholder="pass"
           rightIconName="x-circle"
           error={errors.password}
           onChangeText={(password) => setValue('password', password)}
+          onFocus={handleHideImage}
         />
       </InputWrapper>
       <Button title="Entrar" onPress={handleSubmit(onPressEnter)}>
